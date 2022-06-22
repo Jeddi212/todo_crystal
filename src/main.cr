@@ -1,7 +1,9 @@
 require "kemal"
+require "./db/db_connection"
 
 get "/" do
-  "Hello World!"
+  conn = Connection.get_connection
+  typeof(conn).to_s
 end
 
 Kemal.run
