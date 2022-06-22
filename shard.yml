@@ -1,0 +1,13 @@
+name: todo_crystal
+version: 0.1.0
+
+authors:
+  - Jeddi212 <jedediahf51@gmail.com>
+
+targets:
+  todo_crystal:
+    main: src/todo_crystal.cr
+
+crystal: 1.4.1
+
+license: MIT
