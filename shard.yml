@@ -6,7 +6,7 @@ authors:
 
 targets:
   todo_crystal:
-    main: src/todo_crystal.cr
+    main: src/main.cr
 
 crystal: 1.4.1
 
