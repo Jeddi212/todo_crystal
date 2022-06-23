@@ -9,4 +9,8 @@ class Todos < Jennifer::Model::Base
     created_at: Time?,
     updated_at: Time?,
   )
+
+  def initialize(dto : CreateTodosDto)
+    @title = dto.title
+  end
 end

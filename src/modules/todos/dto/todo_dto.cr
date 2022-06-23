@@ -1,4 +1,5 @@
 # require "../../../models/todos"
+require "json"
 
 class TodosDto
   def initialize(@id : Int32 | Nil, @title : String, @created_at : Time?, @updated_at : Time?)
@@ -13,6 +14,10 @@ class TodosDto
 end
 
 class CreateTodosDto
+  include JSON::Serializable
+
+  property title : String
+
   def initialize(@title : String)
   end
 end

@@ -1,28 +1,23 @@
 require "kemal"
 
-require "../../../models/*"
 require "../dto/todo_dto"
+require "../service/todo_service"
 
 get "/todos" do
-  todo = Todos.create({title: "New Title 3"})
-  todo_dto = TodosDto.new(todo)
-  puts
-  p! todo_dto
-  puts todo.inspect
+
 end
 
 get "/todos:id" do
-  todo = Todos.create({title: "New Title 3"})
-  puts
-  puts
-  puts todo.inspect
+
 end
 
-post "/todos" do
-  
+post "/todos" do |ctx|
+  todo_dto = CreateTodosDto.from_json ctx.request.body.not_nil!
+  {title: todo_dto.title}.to_json
+  TodoService.save(todo_dto)
 end
 
-put "/todos:id" do |context|
+put "/todos:id" do |ctx|
   
 end
 
