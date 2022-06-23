@@ -2,7 +2,7 @@ require "jennifer"
 
 require "./items"
 
-class Todos < Jennifer::Model::Base
+class Todo < Jennifer::Model::Base
   with_timestamps
 
   mapping(
@@ -12,7 +12,7 @@ class Todos < Jennifer::Model::Base
     updated_at: Time?,
   )
 
-  has_many :todo_items, Items
+  has_many :items, Items
 
   def initialize(@id : Int32 | Nil, @title : String, @created_at : Time?, @updated_at : Time?)
   end

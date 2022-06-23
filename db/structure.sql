@@ -26,8 +26,9 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.items (
     id integer NOT NULL,
-    checked boolean NOT NULL,
+    checked boolean DEFAULT false,
     todo_id integer NOT NULL,
+    name character varying(254) NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -170,6 +171,14 @@ ALTER TABLE ONLY public.migration_versions
 
 ALTER TABLE ONLY public.todos
     ADD CONSTRAINT todos_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: items fk_cr_c01e6b449d; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.items
+    ADD CONSTRAINT fk_cr_c01e6b449d FOREIGN KEY (todo_id) REFERENCES public.todos(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 
 --
