@@ -7,8 +7,26 @@ Todo apps in manner to learning crystal programming language.
 <hr>
 
 ## Installation
+- Check database env in 
+```
+./config/database.yml
+```
 
-TODO: Write installation instructions here
+- Dependencies
+```
+shards install
+
+```
+
+- Create Database ( only run this once at first time setup )
+```
+make sam db:create
+```
+
+- Migration
+```
+make sam db:migrate
+```
 
 ## Usage
 
