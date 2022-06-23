@@ -21,6 +21,43 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: items; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.items (
+    id integer NOT NULL,
+    checked boolean NOT NULL,
+    todo_id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.items OWNER TO postgres;
+
+--
+-- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.items_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.items_id_seq OWNER TO postgres;
+
+--
+-- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.items_id_seq OWNED BY public.items.id;
+
+
+--
 -- Name: migration_versions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -91,6 +128,13 @@ ALTER SEQUENCE public.todos_id_seq OWNED BY public.todos.id;
 
 
 --
+-- Name: items id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.items ALTER COLUMN id SET DEFAULT nextval('public.items_id_seq'::regclass);
+
+
+--
 -- Name: migration_versions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -102,6 +146,14 @@ ALTER TABLE ONLY public.migration_versions ALTER COLUMN id SET DEFAULT nextval('
 --
 
 ALTER TABLE ONLY public.todos ALTER COLUMN id SET DEFAULT nextval('public.todos_id_seq'::regclass);
+
+
+--
+-- Name: items items_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.items
+    ADD CONSTRAINT items_pkey PRIMARY KEY (id);
 
 
 --
