@@ -1,5 +1,7 @@
 require "jennifer"
 
+require "./items"
+
 class Todos < Jennifer::Model::Base
   with_timestamps
 
@@ -9,6 +11,8 @@ class Todos < Jennifer::Model::Base
     created_at: Time?,
     updated_at: Time?,
   )
+
+  has_many :todo_items, Items
 
   def initialize(@id : Int32 | Nil, @title : String, @created_at : Time?, @updated_at : Time?)
   end

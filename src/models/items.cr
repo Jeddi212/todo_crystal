@@ -1,5 +1,7 @@
 require "jennifer"
 
+require "./items"
+
 class Items < Jennifer::Model::Base
   with_timestamps
 
@@ -10,4 +12,6 @@ class Items < Jennifer::Model::Base
     created_at: Time?,
     updated_at: Time?,
   )
+
+  belongs_to :todo, Todos
 end
