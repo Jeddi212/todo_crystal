@@ -8,8 +8,6 @@ class ItemsDto
     @todos_id = it.todos_id
     @checked = it.checked
     @name = it.name
-    @created_at = it.created_at
-    @updated_at = it.updated_at
   end
 end
 
