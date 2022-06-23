@@ -20,3 +20,6 @@ dependencies:
     github: kemalcr/kemal
   pg:
     github: will/crystal-pg
+  sam:
+    github: imdrasil/sam.cr
+    version: 0.4.2
