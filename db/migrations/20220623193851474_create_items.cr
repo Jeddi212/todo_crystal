@@ -3,7 +3,7 @@ class CreateItems < Jennifer::Migration::Base
     create_table :items do |t|
       t.reference :todos, :integer, {:column => :todos_id}
       
-      t.bool :checked, {:null => false}
+      t.bool :checked, {:null => false, :default => false}
       t.integer :todos_id, {:null => false}
       t.string :name, {:null => false}
 
