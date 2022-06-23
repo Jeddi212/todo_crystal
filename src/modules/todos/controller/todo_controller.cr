@@ -13,8 +13,9 @@ end
 
 post "/todos" do |ctx|
   todo_dto = CreateTodosDto.from_json ctx.request.body.not_nil!
-  {title: todo_dto.title}.to_json
-  TodoService.save(todo_dto)
+
+  ctx.response.content_type = "application/json"
+  TodoService.save(todo_dto).to_json
 end
 
 put "/todos:id" do |ctx|

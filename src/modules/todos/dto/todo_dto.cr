@@ -2,6 +2,8 @@
 require "json"
 
 class TodosDto
+  include JSON::Serializable
+  
   def initialize(@id : Int32 | Nil, @title : String, @created_at : Time?, @updated_at : Time?)
   end
 

@@ -1,8 +1,8 @@
 require "../../../models/*"
 
 module TodoRepository
-  def self.save(todo : Todos)
-    # todo = Todos.build(todos)
+  def self.save(todo : Todos) : Todos
     todo.save
+    todo
   end
 end
