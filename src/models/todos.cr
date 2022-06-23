@@ -1,3 +1,5 @@
+require "jennifer"
+
 class Todos < Jennifer::Model::Base
   with_timestamps
 

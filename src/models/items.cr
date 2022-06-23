@@ -1,3 +1,5 @@
+require "jennifer"
+
 class Items < Jennifer::Model::Base
   with_timestamps
 
