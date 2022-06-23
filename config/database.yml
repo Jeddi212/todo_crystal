@@ -1,17 +1,18 @@
 default: &default
   host: localhost
   user: postgres
-  password:
+  password: root
+  port: "5400"
   adapter: postgres
 
 development:
   <<: *default
-  db: todo_list
+  db: todo_crystal
 
 test:
   <<: *default
-  db: todo_list
+  db: todo_crystal_test
 
 production:
   <<: *default
-  db: todo_list
+  db: todo_crystal_prod
