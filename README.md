@@ -25,7 +25,8 @@ make sam db:create
 
 - Migration
 ```
-make sam db:migrate
+<!-- make sam db:migrate -->
+make sam db:schema:load
 ```
 
 ## Usage
