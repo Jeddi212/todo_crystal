@@ -4,7 +4,7 @@ require "../dto/todo_dto"
 require "../service/todo_service"
 
 get "/todos" do
-
+  TodoService.find_all.to_json
 end
 
 get "/todos:id" do
