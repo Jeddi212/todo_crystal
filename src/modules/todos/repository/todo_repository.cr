@@ -4,7 +4,7 @@ module TodoRepository
   def self.find_all()
     arr_todo = [] of TodosDto
 
-    t = Todo.all.preload(:items).to_a
+    t = Todo.all
     t.each do |it|
       items_dto = [] of ItemsDto
       it.items.each { |it| items_dto << ItemsDto.new it }
