@@ -20,7 +20,9 @@ post "/todos" do |ctx|
 end
 
 put "/todos/:id" do |ctx|
-  
+  id = ctx.params.url["id"]
+  todo_dto = CreateTodosDto.from_json ctx.request.body.not_nil!
+  TodoService.update(id.to_i, todo_dto).to_json
 end
 
 delete "/todos/:id" do |ctx|
