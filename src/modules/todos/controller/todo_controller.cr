@@ -7,8 +7,9 @@ get "/todos" do
   TodoService.find_all.to_json
 end
 
-get "/todos:id" do
-
+get "/todos/:id" do |ctx|
+  id = ctx.params.url["id"]
+  TodoService.find_one(id.to_i).to_json
 end
 
 post "/todos" do |ctx|

@@ -15,6 +15,10 @@ module TodoRepository
     arr_todo
   end
 
+  def self.find_one(id : Int32)
+    Todo.find!(id)
+  end
+
   def self.save(todo : Todo, items_dto = [] of CreateItemsDto) : TodosDto
     Jennifer::Adapter.default_adapter.transaction do |tx|
       todo.save
