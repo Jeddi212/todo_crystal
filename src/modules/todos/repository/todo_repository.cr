@@ -34,4 +34,8 @@ module TodoRepository
 
     TodosDto.new todo, items_dto
   end
+
+  def self.delete(id : Int32)
+    Todo.destroy(id)
+  end
 end

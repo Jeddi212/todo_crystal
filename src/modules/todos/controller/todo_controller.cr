@@ -19,11 +19,12 @@ post "/todos" do |ctx|
   TodoService.save(todo_dto).to_json
 end
 
-put "/todos:id" do |ctx|
+put "/todos/:id" do |ctx|
   
 end
 
-delete "/todos:id" do
-  
+delete "/todos/:id" do |ctx|
+  id = ctx.params.url["id"]
+  TodoService.remove_one(id.to_i).to_json
 end
 

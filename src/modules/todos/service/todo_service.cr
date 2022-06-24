@@ -19,4 +19,9 @@ module TodoService
   def self.save(create_dto : CreateTodosDto) : TodosDto
     TodoRepository.save(Todo.new(create_dto), create_dto.items)
   end
+
+  def self.remove_one(id : Int32)
+    TodoRepository.delete(id)
+    return "Todo with id: #{id} successfully removed"
+  end
 end
